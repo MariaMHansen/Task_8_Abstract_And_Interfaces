@@ -10,14 +10,15 @@ import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.fail;
 
-class PolymorphismPracticeTest {
-    PolymorphismPracticeTest() {
+class AbstractPracticeTest {
+    AbstractPracticeTest() {
     }
 
     // Step 1 Test
     @DisplayName("Checks MenuItem attributes and constructor")
     @Test
     void menuItemClassTest() throws ClassNotFoundException, NoSuchMethodException, NoSuchFieldException, InvocationTargetException, InstantiationException, IllegalAccessException {
+       /*
         // Checking if MenuItem class exists
         if (!classExists("MenuItem")) {
             fail("\n" +
@@ -111,12 +112,15 @@ class PolymorphismPracticeTest {
             // fields are private
             Assertions.assertEquals(true, menuItemFieldIsPrivate("price"));
         }
+
+        */
     }
 
     // Test 2
     @DisplayName("Checks Pizza and Durum attributes and constructor")
     @Test
     void pizzaClassTest() throws ClassNotFoundException, NoSuchMethodException, NoSuchFieldException, InvocationTargetException, InstantiationException, IllegalAccessException {
+        /*
         // Checking if Pizza class exists
         if (!classExists("Pizza")||!classExists("MenuItem")) {
             fail("\n" +
@@ -418,6 +422,8 @@ class PolymorphismPracticeTest {
             Assertions.assertEquals(true,   pizzaFieldIsPrivate("name"));
             Assertions.assertEquals(true,   pizzaFieldIsPrivate("ingredients"));
         }
+
+         */
     }
 
 
@@ -425,6 +431,7 @@ class PolymorphismPracticeTest {
     @DisplayName("Checks OrderManager class functionality")
     @Test
     void orderTest() throws ClassNotFoundException, NoSuchMethodException, NoSuchFieldException, InvocationTargetException, InstantiationException, IllegalAccessException {
+        /*
         // Checking if OrderManager class exists
         if (!classExists("OrderManager")) {
             fail("\n" +
@@ -524,12 +531,15 @@ class PolymorphismPracticeTest {
         Assertions.assertEquals(true,callMenuItemAddMethodWithPizza());
         Assertions.assertEquals(true,callMenuItemAddMethodWithDurum());
 
+
+         */
     }
 
     // Task 4 Test
     @DisplayName("Checks Durum Discount functionality")
     @Test
     void orderManagerDurumDiscountTest() throws ClassNotFoundException, NoSuchMethodException, NoSuchFieldException, InvocationTargetException, InstantiationException, IllegalAccessException {
+        /*
         // Checking if Pizza class exists
         if (!classExists("MenuItem") || !classExists("OrderManager")) {
             fail("\n" +
@@ -614,12 +624,15 @@ class PolymorphismPracticeTest {
         }
         // checking is sum is correct
         Assertions.assertEquals(142.0, callCalculateTotalPriceWithDurumDiscountMethod());
+
+         */
     }
 
     // Task 5 Test
     @DisplayName("Checks Family Price functionality")
     @Test
     void orderManagerFamilyPizzaTest() throws ClassNotFoundException, NoSuchMethodException, NoSuchFieldException, InvocationTargetException, InstantiationException, IllegalAccessException {
+      /*
         // Checking if Pizza class exists
         if (!classExists("MenuItem") || !classExists("OrderManager")) {
             fail("\n" +
@@ -690,6 +703,7 @@ class PolymorphismPracticeTest {
         // checking if total sum including extra 100 for family pizza is correct
         Assertions.assertEquals(252, callCalculateTotalPriceFamilyPizzaMethod());
 
+       */
     }
 
 

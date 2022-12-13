@@ -1,28 +1,61 @@
-import java.util.Arrays;
+import java.util.ArrayList;
 
-public class Pizza extends MenuItem{
- private String name;
- private String[] ingredients;
- private String size;
-    public Pizza(String name, String size) {
-        super( 87.00);
+public class Pizza extends MenuItem implements Modifyable,Resizable{
+    private String name;
+    private String size;
+    private ArrayList<String> ingredients;
+
+
+    public Pizza(String name) {
+        super.price = 87.0;
         this.name = name;
-        this.ingredients = new String[]{"crust","cheese","toppings"};
-        this.size = size;
+        this.size = "regular";
+        this.ingredients = new ArrayList<>();
+        ingredients.add("crust");
+        ingredients.add("cheese");
+        ingredients.add("toppings");
     }
 
-    public String getName() {
-        return name;
+
+    @Override
+    public void addIngredient(String ingredient) {
+        ingredients.add(ingredient);
+        this.setPrice(this.getPrice()+5.0);
     }
-    public String[] getIngredients() {
-        return ingredients;
+
+    @Override
+    public void removeIngredient(String ingredient) {
+        if(ingredients.contains(ingredient)) {
+            // Control statement
+            if(this.ingredients.contains(ingredient)){
+                ingredients.remove(ingredient);
+                this.setPrice(this.getPrice()- 5.0);
+            }
+            // needs testing for null pointers !!!
+        }
     }
+
+    @Override
+    public void makeLarge() {
+        this.setSize("family");
+        this.setPrice(187.0);
+    }
+
     public String getSize() {
         return size;
     }
 
+    public void setSize(String size) {
+        this.size = size;
+    }
+
     @Override
     public String toString() {
-        return super.toString() + " name: " +getName()+ " size: " +getSize()+ " ingredients: "+Arrays.toString(getIngredients());
+        return "Pizza{" +
+                "name='" + name + '\'' +
+                ", size='" + size + '\'' +
+                ", ingredients=" + ingredients +
+                ", price=" + price +
+                '}';
     }
 }

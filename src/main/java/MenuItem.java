@@ -1,19 +1,21 @@
-import java.util.Arrays;
-import java.util.Random;
+public abstract class MenuItem {
+    double price;
 
-public class MenuItem {
-    private double price;
-
-    public MenuItem( double price) {
-        this.price = price;
-    }
-
-    public String toString() {
-        return " price: "+ getPrice();
+    public MenuItem() {
+        this.price = 0.0;
     }
 
     public double getPrice() {
         return price;
     }
 
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    @Override
+    public String toString() {
+        return "MenuItem: " +
+                "price: " + price;
+    }
 }

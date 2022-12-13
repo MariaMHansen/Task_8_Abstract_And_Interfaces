@@ -1,21 +1,20 @@
 /*
-   Welcome to assignment seven, where you will practice
-   using inheritance and polymorphism to enhance the pizzeria app
+   Welcome to assignment eight, where you will practice
+   using abstract classes and interfaces to enhance the pizzeria app
    that we worked on last time.
 
    ------------------------------------------------------------
-   Polymorphism
+   Abstract class
    -------------------------------------------------------------
-   Polymorphism is a feature of object-oriented programming languages
-   that allows objects to have "many forms", through inheritance.
-   For example in a Student class extends Person class, then the
-   Student class object is also an instance of a Person.
-   Polymorphism is often used in programming for creating generic parent classes,
-   for a group of children classes and accessing methods of different objects
-   related by inheritance through casting.
+   ...
 
-   In this exercise, you will practice using Polymorphism to create discounts
-   and additional fees for the pizzeria price calculating application.
+   ------------------------------------------------------------
+   Interface
+   -------------------------------------------------------------
+    ...
+
+   In this exercise, you will practice using Abstract classes and Interfaces
+   to make pizzas modifiable and resizable.
    Scroll down to STEP 1:
    */
 
@@ -25,14 +24,52 @@
  * to test your solution.
  */
 
-public class PolymorphismPractice {
+public class AbstractPractice {
     public static void main(String[] args) {
-        PolymorphismPractice op = new PolymorphismPractice();
-        System.out.println("Task 1: "); op.getMenuItemInfo();
-        System.out.println("Task 2: "); op.makePizzaAndDurum();
-        System.out.println("Task 3: "); op.checkOrderManager();
-        System.out.println("Task 4: "); op.checkDurumDiscount();
-        System.out.println("Task 5: "); op.checkTotalPriceWithFamilyPizza();
+        AbstractPractice op = new AbstractPractice();
+        System.out.println("Task 1: ");
+        System.out.println("Task 2: ");
+        System.out.println("Task 3: ");
+        System.out.println("Task 4: ");
+        System.out.println("Task 5: ");
+
+        // 1 Make Menu Item Abstract class make Pizza and Durum extend it
+        Pizza pizza1 = new Pizza("Margherita");
+        Durum durum1 = new Durum("Classic", "kebab");
+        System.out.println(pizza1.getPrice());
+        System.out.println(durum1.getPrice());
+
+        // step 2 make Resizable interface, make Pizza implement it, add price and size to String
+        Pizza pizza = new Pizza("Hawaii");
+        System.out.println(pizza.toString());
+        pizza.makeLarge();
+        System.out.println(pizza.toString());
+
+        // step 3 make Durum Resizeable, add price to and size to string method
+        Durum durum = new Durum("Vegetarian", "soy");
+        System.out.println(durum.toString());
+        durum.makeLarge();
+        System.out.println(durum.toString());
+
+        // step 4 Make pizza Modifyable, condition not even needed
+        Pizza pizza2 = new Pizza("Greek");
+        System.out.println(pizza2.toString());
+        pizza2.addIngredient("chilli");
+        System.out.println(pizza2.toString());
+        pizza2.removeIngredient("chi");
+        System.out.println(pizza2.toString());
+
+        // step 5 make add ingredient set price up, remove ingredient set price down
+        // careful in TESTING!!!
+        OrderManager orderManager = new OrderManager();
+        Pizza pizza3 = new Pizza("Vesuvius");
+        pizza3.addIngredient("olives");
+        Pizza pizza4 = new Pizza("Diablo");
+        pizza4.addIngredient("bacon");
+        pizza4.removeIngredient("cheese");
+        orderManager.addMenuItem(pizza3);
+        orderManager.addMenuItem(pizza4);
+        System.out.println(orderManager.calculateTotalPrice());
     }
 
     /**
@@ -53,8 +90,7 @@ public class PolymorphismPractice {
      */
 
     public void getMenuItemInfo() {
-        MenuItem menuItem1 = new MenuItem(50.0);
-        System.out.println("MenuItem: " + menuItem1);
+
     }
 
     /**
@@ -81,10 +117,7 @@ public class PolymorphismPractice {
 
 
     public void makePizzaAndDurum() {
-        Pizza hawaiiPizza = new Pizza("Hawaii", "regular");
-        System.out.println("Pizza: " + hawaiiPizza);
-        Durum classicDurum = new Durum("classic", "kebab");
-        System.out.println("Durum: " + classicDurum);
+
     }
 
     /**
@@ -107,10 +140,7 @@ public class PolymorphismPractice {
      */
     public void checkOrderManager() {
         // Task 3
-        OrderManager orderManager = new OrderManager();
-        orderManager.addMenuItem(new Pizza("Peperoni", "regular"));
-        orderManager.addMenuItem(new Durum("Classic Durum", "chicken"));
-        orderManager.printMenuItems();
+
     }
 
 
@@ -133,11 +163,7 @@ public class PolymorphismPractice {
      */
 
     public void checkDurumDiscount() {
-        OrderManager orderManager = new OrderManager();
-        orderManager.addMenuItem(new Pizza("Peperoni", "regular"));
-        orderManager.addMenuItem(new Durum("Classic Durum", "chicken"));
-        System.out.println("Price before discount: " + orderManager.calculateTotalPrice());
-        System.out.println("Price with durum discount: " + orderManager.calculateTotalPrice(10.0));
+
     }
 
 
@@ -160,13 +186,7 @@ public class PolymorphismPractice {
      */
 
     public void checkTotalPriceWithFamilyPizza() {
-        Pizza pizza1 = new Pizza("Palermo", "regular");
-        Pizza pizza2 = new Pizza("Greek", "family");
-        OrderManager orderManager = new OrderManager();
-        orderManager.addMenuItem(pizza1);
-        orderManager.addMenuItem(pizza2);
-        orderManager.printMenuItems();
-        System.out.println("Total price: " +orderManager.calculateTotalPrice());
+
     }
 }
 /**
