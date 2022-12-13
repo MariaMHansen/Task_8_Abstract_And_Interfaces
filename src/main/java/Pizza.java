@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class Pizza extends MenuItem implements Modifyable,Resizable{
+public class Pizza extends MenuItem implements Modifiable,Resizable{
     private String name;
     private String size;
     private ArrayList<String> ingredients;
@@ -51,11 +51,14 @@ public class Pizza extends MenuItem implements Modifyable,Resizable{
 
     @Override
     public String toString() {
-        return "Pizza{" +
-                "name='" + name + '\'' +
-                ", size='" + size + '\'' +
-                ", ingredients=" + ingredients +
-                ", price=" + price +
-                '}';
+        return super.toString() + " name: " +getName() + " size: " +getSize()+ " ingredients: "+ getIngredients();
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public ArrayList<String> getIngredients() {
+        return ingredients;
     }
 }

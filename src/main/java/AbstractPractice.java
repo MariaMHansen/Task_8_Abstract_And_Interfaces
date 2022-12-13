@@ -6,12 +6,19 @@
    ------------------------------------------------------------
    Abstract class
    -------------------------------------------------------------
-   ...
+   An abstract class in Java is used to define the generalised description of
+   what all classes of a certain type must be able to do. For example,
+   if a vehicle is an abstract class with drive(), brake() and stop()
+   methods, that all types of car classes that extend the vehicle class,
+   must also implement these methods to be a real vehicle.
 
    ------------------------------------------------------------
    Interface
    -------------------------------------------------------------
-    ...
+   An interface in programming is like a contract. Any class that implements
+   the interface is guaranteed to implement the methods declared in the
+   interface. That is very convenient when a developer team members are working
+   on different classes, that must all have a set of key methods for the program to work.
 
    In this exercise, you will practice using Abstract classes and Interfaces
    to make pizzas modifiable and resizable.
@@ -22,45 +29,137 @@
  * This is the Main method,
  * Uncomment the lines of code for each method you implement
  * to test your solution.
+ * Note: In this assignment some classes are pre-implemented for you!
  */
 
 public class AbstractPractice {
     public static void main(String[] args) {
         AbstractPractice op = new AbstractPractice();
-        System.out.println("Task 1: ");
-        System.out.println("Task 2: ");
-        System.out.println("Task 3: ");
-        System.out.println("Task 4: ");
-        System.out.println("Task 5: ");
+        System.out.println("Task 1: "); op.getMenuItemInfo();
+        System.out.println("Task 2: "); op.resizePizza();
+        System.out.println("Task 3: "); op.resizeDurum();
+        System.out.println("Task 4: "); op.modifyPizza();
+        System.out.println("Task 5: "); op.checkTotalPrice();
+    }
 
-        // 1 Make Menu Item Abstract class make Pizza and Durum extend it
-        Pizza pizza1 = new Pizza("Margherita");
-        Durum durum1 = new Durum("Classic", "kebab");
-        System.out.println(pizza1.getPrice());
-        System.out.println(durum1.getPrice());
+    /**
+     * Task 1
+     * In this task we will create the MenuItem abstract class (see the UML diagram for reference)
+     * The MenuItem class will be slightly different from last time,
+     * it needs to have only one private attribute price(double).
+     * The class also needs an empty constructor that sets the default price to 0.0
+     * This price attribute needs a getter and a setter method.
+     * The class also needs a toString method for
+     * displaying the price.
+     * You can choose a format you like, or you can use this one:
+     * return " price: "+ getPrice();
+     * Make Pizza (pre-made class) and Durum (pre-made class)
+     * extend MenuItem abstract class.
+     * Note: You need to modify their constructors to send
+     * the price to superclass using super.setPrice()
+     * All pizzas must cost 87.0 and all durum 65.0
+     * Points: 2
+     * New skills: abstract class, inheritance revision
+     * Difficulty: 2
+     */
 
-        // step 2 make Resizable interface, make Pizza implement it, add price and size to String
+    public void getMenuItemInfo() {
+        Pizza pizza = new Pizza("Margherita");
+        Durum durum = new Durum("Classic", "kebab");
+        System.out.println("MenuItem pizza has price: "+pizza.getPrice());
+        System.out.println("MenuItem durum has price: "+durum.getPrice());
+    }
+
+    /**
+     *  // Task 2 make Resizable interface, make Pizza implement it, add price and size to String
+     * Task 2
+     * Our pizzeria will be making different sizes of Pizza sizes,
+     * For pizzas it is "regular" and "family"
+     * It is convenient in this case, to create a Resizable interface
+     * that has a method makeLarge().
+     * Then, you need to make Pizza class implement
+     * the Resizable interface, this will require
+     * implementing the makeLarge() method inside Pizza class.
+     * Make this method to function in a way that it would
+     * set pizza size to "family" and pizza price to 187.0 then called
+     * Note: You might have to modify the toString method to see the prices change
+     * Points: 2
+     * New skills: creating and implementing an interface
+     * Difficulty: 3
+     */
+
+    public void resizePizza() {
         Pizza pizza = new Pizza("Hawaii");
-        System.out.println(pizza.toString());
+        System.out.println("This is a regular pizza, " + "size: "+ pizza.getSize() + " price: "+pizza.getPrice());
         pizza.makeLarge();
-        System.out.println(pizza.toString());
+        System.out.println("This is a family pizza, " + "size: "+ pizza.getSize() + " price: "+pizza.getPrice());
+    }
 
-        // step 3 make Durum Resizeable, add price to and size to string method
+    /**
+     * Task 3
+     * In this step we will make Durum implement the Resizable interface,
+     * it is almost just like pizza, but
+     * For durum the sizes are "regular" and "large"
+     * The price for the large durum is 85.0
+     * Note: You might have to modify the toString method to see the prices change
+     * See the UML diagram for more details.
+     * Points: 3
+     * New skills: polymorphism and ArrayList<>
+     * Difficulty: 3
+     */
+    public void resizeDurum() {
         Durum durum = new Durum("Vegetarian", "soy");
-        System.out.println(durum.toString());
+        System.out.println("This is a regular durum, " + "size: "+ durum.getSize() + " price: "+durum.getPrice());
         durum.makeLarge();
-        System.out.println(durum.toString());
+        System.out.println("This is a large durum, " + "size: "+ durum.getSize() + " price: "+durum.getPrice());
+    }
 
-        // step 4 Make pizza Modifyable, condition not even needed
-        Pizza pizza2 = new Pizza("Greek");
-        System.out.println(pizza2.toString());
-        pizza2.addIngredient("chilli");
-        System.out.println(pizza2.toString());
-        pizza2.removeIngredient("chi");
-        System.out.println(pizza2.toString());
+    /**
+     * Task 4
+     * Our pizzaria app is getting more and more advanced,
+     * now it needs the functionality that would allow
+     * to add and remove extra ingredients from a pizza.
+     * For this we will create a Modifiable interface.
+     * This interface will only be implemented by Pizza class.
+     * It will contain addIngredient(String ingredient)
+     * and removeIngredient(String ingredient)  methods,
+     * which will remove and add items from the Pizza ingredients
+     * ArrayList. Remember to keep this attribute private
+     * and use setters and getters.
+     * Check the UML diagram for details.
+     * Note: You might have to modify the toString method to see the pizza ingredients change
+     * Points: 3
+     * New skills: ArrayList remove method, interfaces
+     * Difficulty: 4
+     */
 
-        // step 5 make add ingredient set price up, remove ingredient set price down
-        // careful in TESTING!!!
+    public void modifyPizza() {
+        Pizza pizza = new Pizza("Greek");
+        System.out.println(pizza.toString());
+        pizza.addIngredient("chilli");
+        System.out.println(pizza.toString());
+        pizza.removeIngredient("cheese");
+        System.out.println(pizza.toString());
+    }
+
+
+    /**
+     * Task 5
+     * Finally, for this last task we will modify the calculateTotalPrice
+     * method which we worked with in previous exercises.
+     * The OrderManager class is pre-implemented for you.
+     * Your task is to modify the addIngredient and removeIngredient
+     * methods inside Pizza class, so that every time an extra ingredient
+     * is added 5.0 is added to the pizzas price.
+     * Correspondingly, 5.0 is deducted from pizza object price every time
+     * an ingredient is removed.
+     * Hint: use super keyword to access the price in MenuItem class from Pizza class
+     * Points: 2
+     * New skills: setting super class attributes from child classes, interfaces
+     * Difficulty: 2
+     */
+
+    public void checkTotalPrice() {
         OrderManager orderManager = new OrderManager();
         Pizza pizza3 = new Pizza("Vesuvius");
         pizza3.addIngredient("olives");
@@ -69,124 +168,7 @@ public class AbstractPractice {
         pizza4.removeIngredient("cheese");
         orderManager.addMenuItem(pizza3);
         orderManager.addMenuItem(pizza4);
-        System.out.println(orderManager.calculateTotalPrice());
-    }
-
-    /**
-     * Task 1
-     * In this task we will create the  MenuItem class (see the UML diagram for reference)
-     * The MenuItem class will be slightly different from last time,
-     * it needs to have only one private attribute price(double).
-     * The class also needs a constructor that uses a double price parameter.
-     * This price attribute needs a getter method.
-     * The class also needs a toString method for
-     * displaying the MenuItems nicely for testing your solution.
-     * You can choose a format you like, or you can use this one:
-     * return " price: "+ getPrice();
-     * Note! The toString() method must return a String, not just System.out.print it
-     * Points: 2
-     * New skills: revision attributes and constructors
-     * Difficulty: 2
-     */
-
-    public void getMenuItemInfo() {
-
-    }
-
-    /**
-     * Task 2
-     * Our pizzeria will be making two types of MenuItems,
-     * pizzas and durum, for this we will need to create
-     * two classes Pizza and Durum, they will be much like
-     * in the previous task, but a bit modified.
-     * Pizza and Durum classes must be implemented as children classes
-     * to the MenuItem parent class.
-     * Use the UML diagram provided in the UML folder to see pizza and durum attributes.
-     * Remember to make all attributes private and create getters.
-     * Create the constructors, as instructed.
-     * Since, Pizza and Durum classes have an inheritance relation to MenuItem class,
-     * they will need to send the price parameter to the super class in the constructor.
-     * All pizzas cost 87.0 and all durum cost 65.0
-     * For simplicity, all pizzas have the following ingredients {"crust","cheese","toppings"}.
-     * You also need to create a toStringMethod, to print out your items nicely.
-     * You can use the previous Task_6_Inheritance_And_Overriding as an example
-     * Points: 2
-     * New skills: repetition of inheritance
-     * Difficulty: 2
-     */
-
-
-    public void makePizzaAndDurum() {
-
-    }
-
-    /**
-     * Task 3
-     * In this step we will create an OrderManager class,
-     * with one private attribute, which is an ArrayList of MenuItems.
-     * Using this data structure instead of an array, like we did last
-     * time, will make it easier to add and remove items from the list,
-     * because ArrayLists have a dynamically changing size, and some
-     * useful methods, such as add and remove are pre-implemented.
-     * Try to use the .add method to implement the addMenuItem method
-     * You can find an example here:
-     * "Introduction to Java Programming and Data Structures book"
-     * Inheritance and Polymorphism, Listing 11.8 TestArrayList.java
-     * You will also need to create an empty constructor a getter and a toString method.
-     * See the UML diagram for more details.
-     * Points: 3
-     * New skills: polymorphism and ArrayList<>
-     * Difficulty: 3
-     */
-    public void checkOrderManager() {
-        // Task 3
-
-    }
-
-
-    /**
-     * Task 4
-     * In this task we will learn to use polymorphism to check
-     * if a MenuItem in the menuItems ArrayList<> is a
-     * Pizza or a Durum class object. We will use overloading,
-     * to implement calculating the discount price, like we did in
-     * Task_5_Visibility_And_Overloading
-     * Implement the calculateTotalPrice(double durumDiscount)
-     * in a way that it would iterate through all items in the
-     * menuItems ArrayList<> using a for or a for each loop,
-     * and sum them up to a total price.
-     * Check for each item if it is a Durum, if so
-     * subtract the discount from total price.
-     * Points: 3
-     * New skills: polymorphism and instanceof
-     * Difficulty: 4
-     */
-
-    public void checkDurumDiscount() {
-
-    }
-
-
-    /**
-     * Task 5
-     * Finally, we will add additional functionality to OrderManager
-     * calculateTotalPrice() method.
-     * The pizzas in out system now have a size attribute,
-     * which can be "regular" or "family"
-     * Add additional functionality to the method,
-     * so that while it is looping through the menuItems
-     * to calculate the total price it also checks if the
-     * menu item is a Pizza. If so the item gets casted to
-     * a Pizza object to check the type attribute.
-     * If the type is "family" extra 100.0 is added to total price.
-     * Hint! Use the exact String "family" as size for the tests to pass
-     * Points: 2
-     * New skills: polymorphism and casting objects
-     * Difficulty: 2
-     */
-
-    public void checkTotalPriceWithFamilyPizza() {
-
+        System.out.println("The total price is: " +orderManager.calculateTotalPrice());
     }
 }
 /**
