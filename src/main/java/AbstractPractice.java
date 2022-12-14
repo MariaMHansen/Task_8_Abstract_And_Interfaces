@@ -48,15 +48,15 @@ public class AbstractPractice {
      * The MenuItem class will be slightly different from last time,
      * it needs to have only one private attribute price(double).
      * The class also needs an empty constructor that sets the default price to 0.0
-     * This price attribute needs a getter and a setter method.
-     * The class also needs a toString method for
-     * displaying the price.
+     * This price attribute needs a getter method, a setter method,
+     * and a toString method for displaying the price.
      * You can choose a format you like, or you can use this one:
      * return " price: "+ getPrice();
-     * Make Pizza (pre-made class) and Durum (pre-made class)
-     * extend MenuItem abstract class.
-     * Note: You need to modify their constructors to send
-     * the price to superclass using super.setPrice()
+     * You are provided 2 premade classes Pizza and Durum,
+     * you need to make them extend MenuItem abstract class,
+     * and make modifications necessary after that
+     * (some of them will be prompted by your IDE)
+     * Note: Use super.setPrice() inside the child classes constructors
      * All pizzas must cost 87.0 and all durum 65.0
      * Points: 2
      * New skills: abstract class, inheritance revision
@@ -71,7 +71,6 @@ public class AbstractPractice {
     }
 
     /**
-     *  // Task 2 make Resizable interface, make Pizza implement it, add price and size to String
      * Task 2
      * Our pizzeria will be making different sizes of Pizza sizes,
      * For pizzas it is "regular" and "family"
@@ -104,7 +103,7 @@ public class AbstractPractice {
      * Note: You might have to modify the toString method to see the prices change
      * See the UML diagram for more details.
      * Points: 3
-     * New skills: polymorphism and ArrayList<>
+     * New skills: creating and implementing an interface
      * Difficulty: 3
      */
     public void resizeDurum() {
@@ -135,11 +134,11 @@ public class AbstractPractice {
 
     public void modifyPizza() {
         Pizza pizza = new Pizza("Greek");
-        System.out.println(pizza.toString());
+        System.out.println(pizza);
         pizza.addIngredient("chilli");
-        System.out.println(pizza.toString());
+        System.out.println(pizza);
         pizza.removeIngredient("cheese");
-        System.out.println(pizza.toString());
+        System.out.println(pizza);
     }
 
 
@@ -171,6 +170,6 @@ public class AbstractPractice {
         System.out.println("The total price is: " +orderManager.calculateTotalPrice());
     }
 }
-/**
- * @author Maria Hansen
+/*
+  @author Maria Hansen
  */

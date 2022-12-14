@@ -4,8 +4,6 @@ public class Pizza extends MenuItem implements Modifiable,Resizable{
     private String name;
     private String size;
     private ArrayList<String> ingredients;
-
-
     public Pizza(String name) {
         super.price = 87.0;
         this.name = name;
@@ -31,7 +29,6 @@ public class Pizza extends MenuItem implements Modifiable,Resizable{
                 ingredients.remove(ingredient);
                 this.setPrice(this.getPrice()- 5.0);
             }
-            // needs testing for null pointers !!!
         }
     }
 
