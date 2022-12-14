@@ -1,11 +1,10 @@
 import java.util.ArrayList;
 
-public class Pizza extends MenuItem implements Modifiable,Resizable{
+public class Pizza{
     private String name;
     private String size;
     private ArrayList<String> ingredients;
     public Pizza(String name) {
-        super.price = 87.0;
         this.name = name;
         this.size = "regular";
         this.ingredients = new ArrayList<>();
@@ -14,31 +13,7 @@ public class Pizza extends MenuItem implements Modifiable,Resizable{
         ingredients.add("toppings");
     }
 
-
-    @Override
-    public void addIngredient(String ingredient) {
-        ingredients.add(ingredient);
-        this.setPrice(this.getPrice()+5.0);
-    }
-
-    @Override
-    public void removeIngredient(String ingredient) {
-        if(ingredients.contains(ingredient)) {
-            // Control statement
-            if(this.ingredients.contains(ingredient)){
-                ingredients.remove(ingredient);
-                this.setPrice(this.getPrice()- 5.0);
-            }
-        }
-    }
-
-    @Override
-    public void makeLarge() {
-        this.setSize("family");
-        this.setPrice(187.0);
-    }
-
-    public String getSize() {
+   public String getSize() {
         return size;
     }
 

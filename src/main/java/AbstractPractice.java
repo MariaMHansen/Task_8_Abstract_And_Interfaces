@@ -34,12 +34,12 @@
 
 public class AbstractPractice {
     public static void main(String[] args) {
-        AbstractPractice op = new AbstractPractice();
-        System.out.println("Task 1: "); op.getMenuItemInfo();
-        System.out.println("Task 2: "); op.resizePizza();
-        System.out.println("Task 3: "); op.resizeDurum();
-        System.out.println("Task 4: "); op.modifyPizza();
-        System.out.println("Task 5: "); op.checkTotalPrice();
+        // AbstractPractice op = new AbstractPractice();
+        // System.out.println("Task 1: "); op.getMenuItemInfo();
+        // System.out.println("Task 2: "); op.resizePizza();
+        // System.out.println("Task 3: "); op.resizeDurum();
+        // System.out.println("Task 4: "); op.modifyPizza();
+        // System.out.println("Task 5: "); op.checkTotalPrice();
     }
 
     /**
@@ -62,13 +62,15 @@ public class AbstractPractice {
      * New skills: abstract class, inheritance revision
      * Difficulty: 2
      */
-
+/*
     public void getMenuItemInfo() {
         Pizza pizza = new Pizza("Margherita");
         Durum durum = new Durum("Classic", "kebab");
         System.out.println("MenuItem pizza has price: "+pizza.getPrice());
         System.out.println("MenuItem durum has price: "+durum.getPrice());
     }
+
+ */
 
     /**
      * Task 2
@@ -86,13 +88,15 @@ public class AbstractPractice {
      * New skills: creating and implementing an interface
      * Difficulty: 3
      */
-
+/*
     public void resizePizza() {
         Pizza pizza = new Pizza("Hawaii");
         System.out.println("This is a regular pizza, " + "size: "+ pizza.getSize() + " price: "+pizza.getPrice());
         pizza.makeLarge();
         System.out.println("This is a family pizza, " + "size: "+ pizza.getSize() + " price: "+pizza.getPrice());
     }
+
+ */
 
     /**
      * Task 3
@@ -106,12 +110,14 @@ public class AbstractPractice {
      * New skills: creating and implementing an interface
      * Difficulty: 3
      */
+    /*
     public void resizeDurum() {
         Durum durum = new Durum("Vegetarian", "soy");
         System.out.println("This is a regular durum, " + "size: "+ durum.getSize() + " price: "+durum.getPrice());
         durum.makeLarge();
         System.out.println("This is a large durum, " + "size: "+ durum.getSize() + " price: "+durum.getPrice());
     }
+     */
 
     /**
      * Task 4
@@ -131,7 +137,7 @@ public class AbstractPractice {
      * New skills: ArrayList remove method, interfaces
      * Difficulty: 4
      */
-
+/*
     public void modifyPizza() {
         Pizza pizza = new Pizza("Greek");
         System.out.println(pizza);
@@ -141,12 +147,14 @@ public class AbstractPractice {
         System.out.println(pizza);
     }
 
+ */
 
     /**
      * Task 5
      * Finally, for this last task we will modify the calculateTotalPrice
      * method which we worked with in previous exercises.
-     * The OrderManager class is pre-implemented for you.
+     * The OrderManager class is pre-implemented for you,
+     * you just need to remove 2 comment marks (/*) in the end and beginning of the class
      * Your task is to modify the addIngredient and removeIngredient
      * methods inside Pizza class, so that every time an extra ingredient
      * is added 5.0 is added to the pizzas price.
@@ -157,7 +165,7 @@ public class AbstractPractice {
      * New skills: setting super class attributes from child classes, interfaces
      * Difficulty: 2
      */
-
+/*
     public void checkTotalPrice() {
         OrderManager orderManager = new OrderManager();
         Pizza pizza3 = new Pizza("Vesuvius");
@@ -169,6 +177,8 @@ public class AbstractPractice {
         orderManager.addMenuItem(pizza4);
         System.out.println("The total price is: " +orderManager.calculateTotalPrice());
     }
+
+ */
 }
 /*
   @author Maria Hansen
